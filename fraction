@@ -1,0 +1,44 @@
+#coding: utf-8 -*-
+from math import gcd
+
+
+class Fraction:
+    def __init__(self, numerator, denumerator):
+        self.num = numerator
+        self.den = denumerator
+
+    def gcd(self, num, den):
+        common_den = gcd(num, den)
+        return num // common_den, den // common_den
+
+    def __str__(self):
+        return str(self.num)+"/"+str(self.den)
+
+    def __add__(self, otherfraction):
+        total_num = self.num * otherfraction.den + self.den * otherfraction.num
+        total_den = self.den * otherfraction.den
+        return Fraction(*self.gcd(total_num, total_den))
+
+    def __sub__(self, other):
+        total_den = self.den * other.den
+        total_num = self.num * other.den - self.den * other.num
+        return Fraction(*self.gcd(total_num, total_den))
+
+    def __mul__(self, other):
+        total_den = self.den * other.den
+        total_num = self.num * other.num
+        return Fraction(*self.gcd(total_num, total_den))
+
+    def __truediv__(self, other):
+        total_den = self.den * other.num
+        total_num = self.num * other.den
+        return Fraction(*self.gcd(total_num, total_den))
+
+if __name__ == '__main__':
+     x = Fraction(1, 2)
+     y = Fraction(2, 3)
+     print(x + y)
+     print(x - y)
+     print(x * y)
+     print(x / y)
+

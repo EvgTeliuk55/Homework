@@ -15,22 +15,26 @@ class Vector:
 
     def __str__(self):
         return str(self.first_crd)+","+str(self.sec_crd)
-
+        
+    @decorator_func
     def __add__(self, other):
         total_first_coord = self.first_crd + other.first_crd
         total_sec_coord = self.sec_crd + other.sec_crd
         return Vector(total_first_coord, total_sec_coord)
 
+    @decorator_func
     def __sub__(self, other):
         total_first_coord = self.first_crd - other.first_crd
         total_sec_coord = self.sec_crd - other.sec_crd
         return Vector(total_first_coord, total_sec_coord)
 
+    @decorator_func
     def __matmul__(self, other):
         total_first_coord = self.first_crd * other.first_crd
         total_sec_coord = self.sec_crd * other.sec_crd
         return total_first_coord + total_sec_coord
 
+    @decorator_func
     def __mul__(self, other):
         total_x_coord = self.first_crd * other.sec_crd
         total_y_coord = self.sec_crd * other.first_crd

@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+
+
+class Router:
+    METHODS = ['GET', 'PATCH', 'DELETE', 'POST', 'UPDATE']
+    
+     def __init__(self):
+Задачу разобрал построчно. Прорешать сам не успел.
